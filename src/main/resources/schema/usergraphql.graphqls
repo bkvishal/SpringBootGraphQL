@@ -1,0 +1,43 @@
+type User {
+    userId: ID!,
+    username: String,
+    number: String,
+    email: String,
+    password: String,
+  #  address: FullAddress
+}
+
+
+#type FullAddress {
+#    city: String,
+#    country: String,
+#    zipCode: Int
+#    street: String
+#}
+
+input UserInput {
+    username: String,
+    number: String,
+    email: String,
+    password: String,
+#    address: FullAddressInput
+}
+
+#input FullAddressInput {
+#    city: String,
+#    country: String,
+#    zipCode: Int
+#    street: String
+#}
+
+type Query {
+    getUsers: [User]
+    getUser(userId: ID): User
+
+}
+
+type Mutation {
+    addUser(input: UserInput): User
+    deleteUser(userId: Int): User
+}
+
